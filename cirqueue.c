@@ -90,13 +90,13 @@ int main()
 			       traverse(&q);
 			       break;
 			case 2:dequeue(&q);
-				     f=0;
-		         traverse(&q);
-		         break;
-		  case 3:traverse(&q);
-	           break;
+			       f=0;
+		               traverse(&q);
+		               break;
+		        case 3:traverse(&q);
+	           	       break;
 			case 4:i=0;
-		         break;
+		               break;
 		}
 	}
 return 0;
