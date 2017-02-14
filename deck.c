@@ -35,8 +35,8 @@ int x;
 				    pq->items[i]=pq->items[i+1];
 				    pq->items[i]=x;
 				    pq->size++;
-			    }
-			    break;
+			    	}
+			   break;
 		//TO ENQUEUE AT FRONT END
 		case 2:if(pq->front==-1)
 				{
@@ -53,8 +53,8 @@ int x;
 					pq->items[i]=pq->items[i-1];
 					pq->items[i]=x;
 					pq->size++;
-	            }
-	            break;
+	            		}
+	            	    break;
 	}
 	return 0;
 }
