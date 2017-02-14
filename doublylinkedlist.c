@@ -223,12 +223,12 @@ int main()
 			       traverse(head);
 			       break;
 			case 5:printf("Enter the node key:");
-				   scanf("%d",&no);
-				   printf("Enter the element to be inserted:");
-				   scanf("%d",&ele);
-				   insafter(&tail,find(&head,no),ele);
-				   traverse(head);
-				   break;
+			       scanf("%d",&no);
+			       printf("Enter the element to be inserted:");
+			       scanf("%d",&ele);
+			       insafter(&tail,find(&head,no),ele);
+			       traverse(head);
+			       break;
 			case 6:printf("Enter the node key:");
 			       scanf("%d",&no);
 			       printf("Enter the element to be inserted:");
