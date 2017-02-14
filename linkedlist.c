@@ -154,11 +154,11 @@ int main()
 		switch(ch)
 		{
 			case 1:printf("Enter element:");
-				   scanf("%d",&ele);
-				   pushfront(&head,&tail,ele);
+			       scanf("%d",&ele);
+			       pushfront(&head,&tail,ele);
 				   traverse(head);
 				   break;
-		    case 2:popfront(&head,&tail);
+		    	case 2:popfront(&head,&tail);
 				   traverse(head);
 				   break;
 			case 3:printf("Enter element:");
