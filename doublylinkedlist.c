@@ -207,21 +207,21 @@ int main()
 		switch(ch)
 		{
 			case 1:printf("Enter element:");
-				   scanf("%d",&ele);
-				   pushfront(&head,&tail,ele);
-				   traverse(head);
-				   break;
-		    case 2:popfront(&head,&tail);
-				   traverse(head);
-				   break;
+			       scanf("%d",&ele);
+			       pushfront(&head,&tail,ele);
+			       traverse(head);
+			       break;
+		        case 2:popfront(&head,&tail);
+			       traverse(head);
+			       break;
 			case 3:printf("Enter element:");
-				   scanf("%d",&ele);
-				   pushback(&head,&tail,ele);
-				   traverse(head);
-				   break;
+			       scanf("%d",&ele);
+			       pushback(&head,&tail,ele);
+			       traverse(head);
+			       break;
 			case 4:popback(&head,&tail);
-				   traverse(head);
-				   break;
+			       traverse(head);
+			       break;
 			case 5:printf("Enter the node key:");
 				   scanf("%d",&no);
 				   printf("Enter the element to be inserted:");
@@ -230,16 +230,16 @@ int main()
 				   traverse(head);
 				   break;
 			case 6:printf("Enter the node key:");
-				   scanf("%d",&no);
-				   printf("Enter the element to be inserted:");
-				   scanf("%d",&ele);
-				   insbefore(&head,find(&head,no),ele);
-				   traverse(head);
-				   break;
+			       scanf("%d",&no);
+			       printf("Enter the element to be inserted:");
+			       scanf("%d",&ele);
+			       insbefore(&head,find(&head,no),ele);
+			       traverse(head);
+			       break;
 			case 7:traverse(head);
-				   break;
+			       break;
 			case 8:i=0;
-				   break;
+			       break;
 			default:printf("Wrong choice entered\n");
 		}
 	}
