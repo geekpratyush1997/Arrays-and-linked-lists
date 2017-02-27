@@ -105,7 +105,16 @@ char *ps;
 		}
 		else
 		if(*ps=='(')//if the character in the exp. is a left paren.
-		push(&s,*(ps++));
+		{
+			 p=top_(&s);
+			if(p=='/' || p=='%' || p=='*')
+			push(&s,*(ps++));
+			else
+			{
+				pos[k++]=pop(&s);
+				push(&s,*(ps++));
+			}
+		}
 		else
 		if(*(ps++)==')')//if the character in the exp. is a right paren.
 			{
