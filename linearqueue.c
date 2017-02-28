@@ -73,12 +73,12 @@ int main()
 			       traverse(&q);
 			       break;
 			case 2:dequeue(&q);
-		         traverse(&q);
-		         break;
-		  case 3:traverse(&q);
-	           break;
-			case 4:i=0;
-		         break;
+		               traverse(&q);
+		               break;
+		  	case 3:traverse(&q);
+	                       break;
+		  	case 4:i=0;
+		               break;
 		}
 	}
 return 0;
