@@ -58,17 +58,17 @@ int main()
 		switch(ch)
 		{
 			case 1:printf("Enter the element:");
-			    scanf("%d",&ele);
-			    push(&s,ele);
-			    traverse(&s);
-			    break;
-		    case 2:pop(&s);
-		       traverse(&s);
-		       break;
-		    case 3:traverse(&s);
-		       break;
-		    case 4:i=0;
-		       break;
+			     scanf("%d",&ele);
+			     push(&s,ele);
+			     traverse(&s);
+			     break;
+		    	case 2:pop(&s);
+		               traverse(&s);
+		               break;
+		        case 3:traverse(&s);
+		               break;
+		        case 4:i=0;
+		               break;
 		}
 	}
 return 0;
