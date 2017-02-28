@@ -91,17 +91,17 @@ int main()
 		switch(ch)
 		{
 			case 1:printf("Enter element:");
-				   scanf("%d",&ele);
-				   push(&head,&tail,ele);
-				   traverse(head);
-				   break;
-		    case 2:pop(&head,&tail);
-				   traverse(head);
-				   break;
+			       scanf("%d",&ele);
+			       push(&head,&tail,ele);
+	                       traverse(head);
+			       break;
+		        case 2:pop(&head,&tail);
+			       traverse(head);
+			       break;
 			case 3:traverse(head);
-				   break;
+			       break;
 			case 4:i=0;
-				   break;
+		               break;
 			default:printf("Wrong choice entered\n");
 		}
 	}
