@@ -167,32 +167,79 @@ int main()
 		switch(ch)
 		{
 			case 1:printf("Enter element:");
-				   scanf("%d",&ele);
-				   pushfront(&head,&tail,ele);
-				   traverse(head,tail);
-				   break;
-		    case 2:popfront(&head,&tail);
-				   traverse(head,tail);
-				   break;
+			       scanf("%d",&ele);
+			       pushfront(&head,&tail,ele);
+			       traverse(head,tail);
+			       break;
+		        case 2:popfront(&head,&tail);
+			       traverse(head,tail);
+			       break;
 			case 3:printf("Enter element:");
-				   scanf("%d",&ele);
-				   pushback(&head,&tail,ele);
-				   traverse(head,tail);
-				   break;
+			       scanf("%d",&ele);
+			       pushback(&head,&tail,ele);
+			       traverse(head,tail);
+			       break;
 			case 4:popback(&head,&tail);
-				   traverse(head,tail);
-				   break;
-			case 5:printf("Enter the node key:");
-				   scanf("%d",&no);
-				   printf("Enter the element to be inserted:");
-				   scanf("%d",&ele);
-				   insafter(&head,&tail,find(&head,no),ele);
-				   traverse(head,tail);
-				   break;
+		               traverse(head,tail);
+			       break;
+			case 5:printf("Enter the node key:");                                
+			       scanf("%d",&no);
+			       printf("Enter the element to be inserted:");
+			       scanf("%d",&ele);
+	if(arr[j]<=pivot)
+	{
+		swap(i,j);//THIS SWAP HELPS IN SWAPPING A LARGE ELEMENT WITH A SMALLER ONE(RELATIVE TO THE PIVOT)
+		i++;
+	}
+	swap(i,u);//THIS SWAP BRINGS THE PIVOT TO ITS POSITION
+	return i;//THE POSITION OF PIVOT IS RETURNED 
+}
+//FUNCTION TO DIVIDE THE ARRAY AND SEND THE POSTIONS
+int quickSort(l,u)
+int l;//THE LOWER BOUND
+int u;//THE UPPER BOUND
+{
+	int p;
+	if(l<u)
+	{
+		p=partition(l,u);
+		quickSort(l,p-1);
+		quickSort(p+1,u);
+	}
+	return 0;
+}
+//FUNCTION TO PRINT THE ARRAY
+int print_arr(size)
+int size;
+{
+	int i;
+	printf("The sorted array is:\n");
+	for(i=0;i<size;i++)
+	printf("%d\t",arr[i]);
+	printf("\n");
+	return 0;
+}
+//main FUNCTION TO SEND THE SIZE OF ARRAY AND CALL THE PRINTING FUNCTION
+int main()
+{
+	int n,i;
+	printf("Enter the no. of elements of the array:");
+	scanf("%d",&n);
+	printf("Enter the elements:\n");
+	for(i=0;i<n;i++)
+	scanf("%d",&arr[i]);
+	quickSort(0,n-1);
+	print_arr(n);
+	return 0;
+}
+//END OF PROGRAM
+		               insafter(&head,&tail,find(&head,no),ele);
+		               traverse(head,tail);
+		               break;
 			case 6:traverse(head,tail);
-				   break;
+			       break;
 			case 7:i=0;
-				   break;
+			       break;
 			default:printf("Wrong choice entered\n");
 		}
 	}
