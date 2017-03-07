@@ -107,6 +107,40 @@ struct node **tail;
 	*tail=q;
 	return 0;
 }
+//FUNCTION TO POP 
+int pop(head,tail,n)
+struct node **head;
+struct node **tail;
+NODEPTR n;
+{
+	NODEPTR p;
+	if(*head==NULL)//WHEN THE LIST IS EMPTY 
+	{
+		printf("*****UNDERFLOW*****\n");
+		return 0;
+	}
+	if(*head==n)//WHEN THE GIVEN NODE IS AT FRONT
+	{
+		popfront(head,tail);
+		return 0;
+	}
+	if(*tail==n)//WHEN THE GIVEN NODE IS AT BACK
+	{
+		popback(head,tail);
+		return 0;
+	}
+	if(*head==*tail)//WHEN THERE IS ONLY ONE ELEMENT
+	{
+		*head=*tail=NULL;
+		return 0;
+	}
+	p=*head;
+	while(p->next!=n)//TO FIND THE PREVIOUS NODE
+	p=p->next;
+	p->next=n->next;
+	freenode(n);
+	return 0;
+}
 //FUNCTION TO INSERT A NODE AFTER A GIVEN NODE
 int insafter(tail,prev_node,x)
 struct node **tail;
@@ -120,6 +154,61 @@ int x;
 	prev_node->next=q;
 	if(*tail==prev_node)
 	*tail=q;
+	return 0;
+}
+//FUNCTION TO SORT THE LIST
+int sort(head,tail)
+struct node **head;
+struct node **tail;
+{
+	NODEPTR h;
+	h=*head;
+	int size=0,arr[100],i,j,s;
+	while(h!=NULL)
+	{
+		arr[size++]=h->key;
+		h=h->next;
+	}
+	//INSERTION SORT
+	for(i=1;i<size;i++)
+	{
+		s=arr[i];
+		j=i-1;
+		//EACH ELEMENT ENTERS INTO SOMEWHAT A SORTED ARRAY AND IS PLACED AT PROPER INDEX
+		while(j>=0 && arr[j]>s)
+		{//ELEMENTS ARE MOVED ONE INDEX AHEAD TO MAKE A GAP FOR THE INCOMING ELEMENT
+			arr[j+1]=arr[j];
+			j--;
+		}
+		arr[j+1]=s;
+	}
+	//THE LIST IS EMPTIED FIRST
+	for(i=0;i<size;i++)
+	popfront(head,tail);
+	//THE LIST IS UPDATED
+	for(i=0;i<size;i++)
+	pushback(head,tail,arr[i]);
+	return 0;
+} 
+//FUNCTION TO REVERSE THE LIST
+int reverse(head,tail)
+struct node **head;
+struct node **tail;
+{
+	NODEPTR h;
+	h=*head;
+	int size=0,arr[100],i;
+	while(h!=NULL)
+	{
+		arr[size++]=h->key;
+		h=h->next;
+	}
+	//THE LIST IS EMPTIED FIRST
+	for(i=0;i<size;i++)
+	popfront(head,tail);
+	//THE NODES ARE INSERTED AT FRONT TO REVERSE THE SEQUENCE
+	for(i=0;i<size;i++)
+	pushfront(head,tail,arr[i]);
 	return 0;
 }
 //FUNCTION TO PRINT THE LIST
@@ -145,8 +234,11 @@ int main()
 	printf("3.TO PUSH AN ELEMENT IN BACK\n");
 	printf("4.TO POP THE ELEMENT IN BACK\n");
 	printf("5.TO INSERT ELEMENT AFTER A NODE\n");
-	printf("6.TO TRAVERSE THE STACK\n");
-	printf("7.TO STOP\n");
+	printf("6.TO POP A NODE FROM ANY POSITION\n");
+	printf("7.TO ARRANGE THE LIST\n");
+	printf("8.TO REVERSE THE LIST\n");
+	printf("9.TO TRAVERSE THE LIST\n");
+	printf("10.TO STOP\n");
 	while(i)
 	{
 		printf("Enter choice:");
@@ -176,9 +268,22 @@ int main()
 			       insafter(&tail,find(&head,no),ele);
 			       traverse(head);
 			       break;
-			case 6:traverse(head);
+			case 6:printf("Enter the node to be popped:");
+			       scanf("%d",&no);
+			       pop(&head,&tail,find(&head,no));
+			       traverse(head);
 			       break;
-			case 7:i=0;
+			case 7:sort(&head,&tail);
+			       printf("LIST AFTER BEING SORTED:\n");
+			       traverse(head);
+			       break;
+			case 8:reverse(&head,&tail);
+			       printf("LIST REVERSED:\n");
+			       traverse(head);
+			       break;
+			case 9:traverse(head);
+			       break;
+			case 10:i=0;
 			       break;
 			default:printf("Wrong choice entered\n");
 		}
